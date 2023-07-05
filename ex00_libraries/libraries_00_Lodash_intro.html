@@ -41,6 +41,64 @@
 
 		console.log(over300);
 
+	// !! important !! -> keyby: returns an object composed of keys generated from iterating the values of each key.
+		
+	// In this roster we have different values per line, but the name of the key is the same, this could be a problem.
+		const roster = [
+		{ position: '3B', name: 'Bregman, A' },
+		{ position: '2B', name: 'Altuve, J' },
+		{ position: 'CF', name: 'Springer, G' },
+		{ position: '1B', name: 'Gurriel, Y' },
+		{ position: 'LF', name: 'Gonzalez, M' }
+		]
+
+		// After running Keyby(collection, specified_key) I it will return the content of the specified key as keys themselves
+		const keyed_positions = _.keyBy(roster, 'position');
+
+		// Now we will have an object that has the content of the key "position" as keys.
+		console.log(keyed_positions);
+
+	// reduce: handy when you need to run a calculation on a collection or dynamically create a collection.
+
+		// It takes an array and a function that takes 3 parameters: the control value, the next value and the starting value.
+		const sum = _.reduce([1, 2, 3] function(total, num) {
+			return total + num;
+		}, 0);
+		// This will return the sum of that = 6.
+
+		// Another example: gather all the home runs of a team:
+		const homerunStats = [
+			{ name: 'Bregman, A',  hr: 19 },
+			{ name: 'Altuve, J',   hr: 24 },
+			{ name: 'Springer, G', hr: 34 },
+			{ name: 'Gurriel, Y',  hr: 18 },
+			{ name: 'Gonzalez, M', hr: 23 }
+		];
+
+		const totalHomeruns = _.reduce(homerunStats, function(total, player) {
+		return total + player.hr;
+		}, 0);
+
+		// Yet another example: a View Helper, it takes links and creates <a> tags.
+			const links = [
+		"https://google.com",
+		"https://devcamp.com",
+		"https://airbnb.com"
+		];
+
+		const webLinks = _.reduce(links, function(content, link) {
+		return `<a href='${link}'>${link}</a><br>`.concat(content);
+		}, '');	
+	
+	// random: it creates random numbers
+	 // random
+	 lodashRandNumber = () => {
+      return _.random(1, 100);
+    }
+
+    const lodashSampleNumbers = _.times(5, lodashRandNumber);
+
+    console.log(lodashSampleNumbers);
 
   </script>
 </html>
