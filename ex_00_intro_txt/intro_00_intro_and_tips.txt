@@ -1,0 +1,6 @@
+Tips and Tricks
+
+Usefull plug-ins and apps:
+
+	Quokka.js -> runs the JS code in VScode without the need of going to the debugger
+	Linting Tools -> such as ESLint, they run and analyze the code.
