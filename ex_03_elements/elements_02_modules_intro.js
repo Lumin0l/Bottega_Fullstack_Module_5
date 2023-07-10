@@ -30,6 +30,7 @@ Adding import into the programs
 	// import { multiply } from './helper';
 
 
+
 // Multiple import/exports ->
 
 /* 
@@ -40,4 +41,20 @@ You can also import all adn set an alias:
 	import * as helper from './helper';
 
 Now we can use it as a library, like: helper.multiply();
+*/
+
+// Default import-export ->
+
+/* 
+If you type:
+	in "greeting" file:
+	export default function() {
+		-> Stuff here that gets exported <-
+	}
+
+There can only be a single default export, but there can be other named exports and can be imported as:
+
+import greeting from './greeting'; // for the default
+import greeting, { multiply, divide } from './greeting'; // for multiple
+
 */
