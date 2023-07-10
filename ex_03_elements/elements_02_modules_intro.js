@@ -30,3 +30,14 @@ Adding import into the programs
 	// import { multiply } from './helper';
 
 
+// Multiple import/exports ->
+
+/* 
+Just add a comma:
+	import { multiply, compare, divide } from './helper';
+
+You can also import all adn set an alias:
+	import * as helper from './helper';
+
+Now we can use it as a library, like: helper.multiply();
+*/
