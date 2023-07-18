@@ -1,0 +1,25 @@
+{
+  "name": "lumin0l-test",
+  "version": "0.1.0",
+  "description": "This is a test module for the course I'm attending.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lumin0l/Bottega_Fullstack_Module_5.git#main"
+  },
+  "keywords": [
+    "lumin-test"
+  ],
+  "author": "lumin0l",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lumin0l/Bottega_Fullstack_Module_5/issues"
+  },
+  "homepage": "https://github.com/Lumin0l/Bottega_Fullstack_Module_5/tree/main#readme",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}
