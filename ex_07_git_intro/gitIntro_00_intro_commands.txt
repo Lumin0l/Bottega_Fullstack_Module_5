@@ -1,0 +1,19 @@
+Intro to git and the most common commands
+
+-> Create repository:
+	- In root of the project.
+	- Will create the directory as a hidden file.
+	$ git init
+
+-> Check status
+	- Will let you know the info about the git repository
+	$ git status
+
+-> Add elements to the repository
+	- Sends elements from the local directory to the git directory
+	$ git Add
+
+-> Commit changes
+	- Commits the changes added to the git repository. Kind of like making a snapshot of the project.
+	$ git commit -m "<message>"
+
