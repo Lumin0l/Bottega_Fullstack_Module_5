@@ -96,10 +96,10 @@
 
 		function waitressComment(item) {
 			// Function to generate a random comment for the selected item
-			const commentKeys = Object.keys(waitressComments);
-			const randomKey = commentKeys[Math.floor(Math.random() * commentKeys.length)];
-			const comment = waitressComments[item] || waitressComments[randomKey];
-			console.log("Waitress Comment: " + comment);
+			 const comment = waitressComments[item];
+			if (comment) {
+				console.log("Waitress Comment: " + comment);
+			}
 		}
 
 		function showSidesMenu(menu) {
@@ -128,6 +128,7 @@
 				console.log("You selected " + side1.name + " and " + side2.name + ".");
 				console.log("That will be $" + (side1.price + side2.price) + ".");
 				waitressComment(side1.name);
+				waitressComment(side2.name);
 				return [side1, side2];
 			}
 		}
@@ -203,7 +204,7 @@
 				// Calculate and display the total cost
 				const total = totalCost(entree, side1, side2);
 				const resultDiv = document.getElementById('result');
-				resultDiv.innerHTML = `<h1>Total Cost: ${total} $</h1>`;
+				resultDiv.innerHTML = `<h1>Total Cost: ${total} $<h1p>`;
 			}
 		}
 

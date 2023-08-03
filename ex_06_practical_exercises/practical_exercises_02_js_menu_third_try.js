@@ -117,6 +117,7 @@ function showSidesMenu(menu, callback) {
         console.log("You selected " + side1.name + " and " + side2.name + ".");
         console.log("That will be $" + (side1.price + side2.price) + ".");
         waitressComment(side1.name);
+    	waitressComment(side2.name);
         callback(side1, side2);
       }
     });
@@ -210,6 +211,7 @@ function showSidesMenu(menu, callback) {
         console.log("You selected " + side1.name + " and " + side2.name + ".");
         console.log("That will be $" + (side1.price + side2.price) + ".");
         waitressComment(side1.name);
+    	waitressComment(side2.name);
         callback(side1, side2);
       }
     });

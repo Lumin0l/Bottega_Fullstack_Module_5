@@ -80,12 +80,11 @@ const lunchEntreeMenu = [
 		};
 
 		function waitressComment(item) {
-			// Function to generate a random comment for the selected item
-			const commentKeys = Object.keys(waitressComments);
-			const randomKey = commentKeys[Math.floor(Math.random() * commentKeys.length)];
-			const comment = waitressComments[item] || waitressComments[randomKey];
-			console.log("Waitress Comment: " + comment);
-		}
+			 const comment = waitressComments[item];
+        if (comment) {
+          console.log("Waitress Comment: " + comment);
+        }
+      }
 
 		function showSidesMenu(menu) {
 			// Display the menu
@@ -113,6 +112,7 @@ const lunchEntreeMenu = [
 				console.log("You selected " + side1.name + " and " + side2.name + ".");
 				console.log("That will be $" + (side1.price + side2.price) + ".");
 				waitressComment(side1.name);
+        waitressComment(side2.name);
 				return [side1, side2];
 			}
 		}
@@ -180,7 +180,8 @@ const lunchEntreeMenu = [
 			} else {
 				console.log("You selected " + entree.name + ".");
 				console.log("That will be $" + entree.price + ".");
-				waitressComment(entree.name);
+				waitressComment(side1.name);
+        waitressComment(side2.name);
 
 				// Get user sides selection
 				const [side1, side2] = showSidesMenu(selectedMenu);
