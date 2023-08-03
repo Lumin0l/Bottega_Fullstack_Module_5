@@ -1,40 +1,44 @@
 Intro to git and the most common commands
 
--> Create repository:
-	- In root of the project.
-	- Will create the directory as a hidden file.
-	$ git init
+	-> Create repository:
+		- In root of the project.
+		- Will create the directory as a hidden file.
+		$ git init
 
--> Check status
-	- Will let you know the info about the git repository
-	$ git status
+	-> Check status
+		- Will let you know the info about the git repository
+		$ git status
 
--> Add elements to the repository
-	- Sends elements from the local directory to the git directory
-	$ git Add
+	-> Add elements to the repository
+		- Sends elements from the local directory to the git directory
+		$ git Add
 
--> Commit changes
-	- Commits the changes added to the git repository. Kind of like making a snapshot of the project.
-	$ git commit -m "<message>"
+	-> Commit changes
+		- Commits the changes added to the git repository. Kind of like making a snapshot of the project.
+		$ git commit -m "<message>"
 
 Github introduction
 
-Github is not git. It is a library for git repositories. 
-Quick info:
+	Github is not git. It is a library for git repositories. 
+	Quick info:
 
 	-> The name of the github repo doesn't have to be the same as the local one.
-	
+
 	-> Once the git repo is made and we made a commit, we can push it into the remote repo (that's basically github, a remote repository)
-	
+
 	-> We can have several remote repositories for different purposes. But we should create an origin one.
-		$ git remote origin <link to github repo>
-		$ git push origin master
-	
+			$ git remote origin <link to github repo>
+			$ git push origin master
+
 	-> Interacting with the remote
 		$ git push // Sends stuff into the remote repo
 		$ git fetch // Takes stuff from the remote repo
-	
+
 	-> Selectin which remote to send the data:
 		$ git push -u <name of remote> <name of the branch>
 	
-	
+Git workflow
+
+	It is a good practice to make a README.md (.md for markdown, it gets converted into html so it can be styled in the page).
+	The README is an intro to the project with documentation and special notes and stuff.
+
