@@ -1,0 +1,245 @@
+/* The one using readline */
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+const lunchEntreeMenu = [
+  { name: 'Rice', price: 6 },
+  { name: 'Pasta', price: 12 },
+  { name: 'Salad', price: 8 },
+  { name: 'Burger', price: 10 },
+  { name: 'Sandwich', price: 9 },
+  { name: 'Pizza', price: 14 },
+];
+
+const lunchSidesMenu = [
+  { name: 'Mashrooms', price: 4 },
+  { name: 'Chicken', price: 5 },
+  { name: 'French Fries', price: 3 },
+  { name: 'Soup', price: 4 },
+  { name: 'Onion Rings', price: 4 },
+  { name: 'Caesar Salad', price: 5 },
+];
+
+const dinnerEntreeMenu = [
+  { name: 'Rice', price: 8 },
+  { name: 'Pasta', price: 14 },
+  { name: 'Salad', price: 10 },
+  { name: 'Burger', price: 12 },
+  { name: 'Sandwich', price: 11 },
+  { name: 'Pizza', price: 16 },
+];
+
+const dinnerSidesMenu = [
+  { name: 'Mashrooms', price: 6 },
+  { name: 'Chicken', price: 7 },
+  { name: 'French Fries', price: 5 },
+  { name: 'Soup', price: 6 },
+  { name: 'Onion Rings', price: 6 },
+  { name: 'Caesar Salad', price: 7 },
+];
+
+const breakfastEntreeMenu = [
+  { name: 'Pancakes', price: 8 },
+  { name: 'Eggs Benedict', price: 12 },
+  { name: 'French Toast', price: 9 },
+  { name: 'Omelette', price: 10 },
+  { name: 'Breakfast Burrito', price: 11 },
+  { name: 'Avocado Toast', price: 9 },
+];
+
+const breakfastSidesMenu = [
+  { name: 'Bacon', price: 3 },
+  { name: 'Sausage', price: 3 },
+  { name: 'Fresh Fruit', price: 4 },
+  { name: 'Hash Browns', price: 4 },
+  { name: 'Yogurt Parfait', price: 5 },
+  { name: 'Bagel with Cream Cheese', price: 3 },
+];
+
+const waitressComments = {
+  "Rice": "Rice is a classic choice! It pairs well with many sides on our menu.",
+  "Pasta": "Our pasta is a customer favorite. It comes with your choice of sauce - Alfredo, Marinara, or Pesto.",
+  "Salad": "The salad is a healthy and refreshing option. You can add chicken or shrimp for extra protein.",
+  "Burger": "Our burgers are handcrafted and juicy. They come with your choice of toppings and cheese.",
+  "Sandwich": "Our sandwiches are made with fresh ingredients. Try the Club Sandwich for a satisfying meal.",
+  "Pizza": "Our pizzas are freshly baked with a variety of toppings to choose from. Perfect for sharing!",
+  "Mashrooms": "The mashed mushrooms have a rich and savory flavor that complements many dishes.",
+  "Chicken": "Our chicken is grilled to perfection. You can choose from various marinades.",
+  "French Fries": "Crispy and golden, our french fries are a classic side that goes well with any entree.",
+  "Soup": "The soup of the day is a delicious choice. It comes with freshly baked bread.",
+  "Onion Rings": "Our onion rings are crunchy and flavorful. They are a great choice for a side.",
+  "Caesar Salad": "The Caesar salad is a timeless option. It's topped with our house-made dressing and croutons.",
+  "Pancakes": "Our fluffy pancakes are a breakfast favorite. Enjoy them with maple syrup and fresh berries.",
+  "Eggs Benedict": "Eggs Benedict is a classic breakfast dish. It comes with hollandaise sauce and your choice of ham or spinach.",
+  "French Toast": "Our French toast is made with thick slices of brioche bread, served with powdered sugar and warm maple syrup.",
+  "Omelette": "Create your own omelette with your favorite ingredients - cheese, vegetables, and meats.",
+  "Breakfast Burrito": "Our breakfast burrito is packed with eggs, bacon, sausage, and cheese. It's a hearty morning option.",
+  "Avocado Toast": "Avocado toast is a healthy and delicious choice. It comes with a sprinkle of chili flakes and lemon zest.",
+  "Bacon": "Crispy and savory, our bacon is the perfect addition to any breakfast.",
+  "Sausage": "Our sausage links are made from a special blend of spices. They are a popular side choice.",
+  "Fresh Fruit": "Start your day with a refreshing bowl of fresh fruit. It's a light and nutritious option.",
+  "Hash Browns": "Our hash browns are crispy on the outside and tender on the inside. They pair well with any breakfast entree.",
+  "Yogurt Parfait": "Our yogurt parfait is a delightful mix of yogurt, granola, and fresh berries.",
+  "Bagel with Cream Cheese": "Enjoy a classic bagel with cream cheese - a timeless breakfast choice."
+};
+
+function waitressComment(item) {
+  // Function to generate a random comment for the selected item
+  const commentKeys = Object.keys(waitressComments);
+  const randomKey = commentKeys[Math.floor(Math.random() * commentKeys.length)];
+  const comment = waitressComments[item] || waitressComments[randomKey];
+  console.log("Waitress Comment: " + comment);
+}
+
+function showSidesMenu(menu, callback) {
+  console.log("Here are the sides options for " + menu + ":");
+  console.log("Sides:");
+  const sidesMenu = menu === "Lunch Menu" ? lunchSidesMenu : dinnerSidesMenu;
+
+  for (let i = 0; i < sidesMenu.length; i++) {
+    console.log(sidesMenu[i].name + " - $" + sidesMenu[i].price);
+  }
+
+  rl.question("Enter the name of your first side choice:", (userInput1) => {
+    rl.question("Enter the name of your second side choice:", (userInput2) => {
+      const side1 = sidesMenu.find((side) => side.name === userInput1);
+      const side2 = sidesMenu.find((side) => side.name === userInput2);
+
+      if (!side1 || !side2) {
+        console.log("Invalid choice. Please enter valid sides from the menu.");
+        showSidesMenu(menu, callback);
+      } else {
+        console.log("You selected " + side1.name + " and " + side2.name + ".");
+        console.log("That will be $" + (side1.price + side2.price) + ".");
+        waitressComment(side1.name);
+        callback(side1, side2);
+      }
+    });
+  });
+}
+
+function totalCost(entree, side1, side2) {
+  // Implement the logic to calculate the total cost
+  const entreePrice = entree.price;
+  const side1Price = side1.price;
+  const side2Price = side2.price;
+  const totalCost = entreePrice + side1Price + side2Price;
+
+  console.log("Total Cost: $" + totalCost);
+}
+
+function selectMenu() {
+  console.log("Please choose a menu:");
+  console.log("1. Lunch Menu");
+  console.log("2. Dinner Menu");
+  console.log("3. Breakfast Menu");
+
+  rl.question("Enter the number of your choice (1, 2, or 3):", (userInput) => {
+    if (userInput === "1") {
+      console.log("You selected the Lunch Menu!");
+      rl.close();
+      Bottega_Diner("Lunch Menu");
+    } else if (userInput === "2") {
+      console.log("You selected the Dinner Menu!");
+      rl.close();
+      Bottega_Diner("Dinner Menu");
+    } else if (userInput === "3") {
+      console.log("You selected the Breakfast Menu!");
+      rl.close();
+      Bottega_Diner("Breakfast Menu");
+    } else {
+      console.log("Invalid choice. Please enter 1, 2, or 3.");
+      selectMenu();
+    }
+  });
+}
+
+function Bottega_Diner(selectedMenu) {
+  let entreeMenu;
+  if (selectedMenu === "Lunch Menu") {
+    entreeMenu = lunchEntreeMenu;
+  } else if (selectedMenu === "Dinner Menu") {
+    entreeMenu = dinnerEntreeMenu;
+  } else if (selectedMenu === "Breakfast Menu") {
+    entreeMenu = breakfastEntreeMenu;
+  }
+
+  rl.question("Enter the name of your entree choice:", (userInputEntree) => {
+    const entree = entreeMenu.find((item) => item.name === userInputEntree);
+
+    if (!entree) {
+      console.log("Invalid choice. Please enter a valid entree from the menu.");
+      rl.close();
+      Bottega_Diner(selectedMenu);
+    } else {
+      console.log("You selected " + entree.name + ".");
+      console.log("That will be $" + entree.price + ".");
+      waitressComment(entree.name);
+
+      showSidesMenu(selectedMenu, (side1, side2) => {
+        totalCost(entree, side1, side2);
+        rl.close();
+      });
+    }
+  });
+}
+
+function showSidesMenu(menu, callback) {
+  console.log("Here are the sides options for " + menu + ":");
+  console.log("Sides:");
+  const sidesMenu = menu === "Lunch Menu" ? lunchSidesMenu : dinnerSidesMenu;
+
+  for (let i = 0; i < sidesMenu.length; i++) {
+    console.log(sidesMenu[i].name + " - $" + sidesMenu[i].price);
+  }
+
+  rl.question("Enter the name of your first side choice:", (userInput1) => {
+    rl.question("Enter the name of your second side choice:", (userInput2) => {
+      const side1 = sidesMenu.find((side) => side.name === userInput1);
+      const side2 = sidesMenu.find((side) => side.name === userInput2);
+
+      if (!side1 || !side2) {
+        console.log("Invalid choice. Please enter valid sides from the menu.");
+        showSidesMenu(menu, callback);
+      } else {
+        console.log("You selected " + side1.name + " and " + side2.name + ".");
+        console.log("That will be $" + (side1.price + side2.price) + ".");
+        waitressComment(side1.name);
+        callback(side1, side2);
+      }
+    });
+  });
+}
+
+function selectMenu() {
+  console.log("Please choose a menu:");
+  console.log("1. Lunch Menu");
+  console.log("2. Dinner Menu");
+  console.log("3. Breakfast Menu");
+
+  rl.question("Enter the number of your choice (1, 2, or 3):", (userInput) => {
+    if (userInput === "1") {
+      console.log("You selected the Lunch Menu!");
+      rl.close();
+      showEntreeMenu("Lunch Menu");
+    } else if (userInput === "2") {
+      console.log("You selected the Dinner Menu!");
+      rl.close();
+      showEntreeMenu("Dinner Menu");
+    } else if (userInput === "3") {
+      console.log("You selected the Breakfast Menu!");
+      rl.close();
+      showEntreeMenu("Breakfast Menu");
+    } else {
+      console.log("Invalid choice. Please enter 1, 2, or 3.");
+      selectMenu();
+    }
+  });
+}
+
+selectMenu();

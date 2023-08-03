@@ -42,3 +42,26 @@ Git workflow
 	It is a good practice to make a README.md (.md for markdown, it gets converted into html so it can be styled in the page).
 	The README is an intro to the project with documentation and special notes and stuff.
 
+.git directory examination
+
+	You can check the ,git directory in your local directory by checking hidden files.
+	There will be several other dirs inside it, let's go throught them:
+		-> branches.
+		-> hooks: a tool and a process that can be run at a specific time. Script that apply to the data in the dir, such as verifying that you wanna push in case you have several remotes and so on.
+		-> info: show info on the repo
+		-> logs: contains the info and the logs for the Commits
+		-> objects: objects in memory
+		-> refs: reference code and inside
+		-> tags: in case we tag the dir
+		-> COMMIT EDITMSG: allows to edit the commit messages.
+		-> config: shows some technical info, notably the url of origin as well as the branch order and so on.
+
+	Using .gitignore
+
+		You want to hide certain information, such as passwords, API keys and so on, because once it's in github anybody can see and steal it.
+		For that purpose we use a .gitignore file where we list by name the files you don't want pushed into the repo.
+		Be careful to spell things correctly.
+		Sometimes it doesn't work because of cache stored data. To solve this we can remove the cache data by doing this:
+			$ git rm -r --cached .
+
+	

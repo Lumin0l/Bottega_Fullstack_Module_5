@@ -124,9 +124,95 @@ const waitressComments = {
   "Bagel with Cream Cheese": "Enjoy a classic bagel with cream cheese - a timeless breakfast choice."
 };
 
+function waitressComment(item) {
+  // Function to generate a random comment for the selected item
+  const commentKeys = Object.keys(waitressComments);
+  const randomKey = commentKeys[Math.floor(Math.random() * commentKeys.length)];
+  const comment = waitressComments[item] || waitressComments[randomKey];
+  console.log("Waitress Comment: " + comment);
+}
+
+function showSidesMenu(menu) {
+  // Display the menu
+  console.log("Here are the sides options for " + menu + ":");
+  console.log("Sides:");
+  const sidesMenu = menu === "Lunch Menu" ? lunchSidesMenu : dinnerSidesMenu;
+
+  for (let i = 0; i < sidesMenu.length; i++) {
+    console.log(sidesMenu[i].name + " - $" + sidesMenu[i].price);
+  }
+
+  // Get user selection
+  const userInput1 = prompt("Enter the name of your first side choice:");
+  const userInput2 = prompt("Enter the name of your second side choice:");
+
+  // check if correct input
+  const side1 = sidesMenu.find((side) => side.name === userInput1);
+  const side2 = sidesMenu.find((side) => side.name === userInput2);
+
+  if (!side1 || !side2) {
+    // Invalid input
+    console.log("Invalid choice. Please enter valid sides from the menu.");
+    showSidesMenu(menu);
+  } else {
+    console.log("You selected " + side1.name + " and " + side2.name + ".");
+    console.log("That will be $" + (side1.price + side2.price) + ".");
+    waitressComment(side1.name);
+    return [side1, side2];
+  }
+}
+
+function totalCost(entree, side1, side2) {
+  // Implement the logic to calculate the total cost
+  const entreePrice = entree.price;
+  const side1Price = side1.price;
+  const side2Price = side2.price;
+  const totalCost = entreePrice + side1Price + side2Price;
+
+  console.log("Total Cost: $" + totalCost);
+}
+
+function Bottega_Diner() {
+  // Get user menu selection
+  const selectedMenu = selectMenu();
+
+  // Get user entree selection
+  let entreeMenu;
+  if (selectedMenu === "Lunch Menu") {
+    entreeMenu = lunchEntreeMenu;
+  } else if (selectedMenu === "Dinner Menu") {
+    entreeMenu = dinnerEntreeMenu;
+  } else if (selectedMenu === "Breakfast Menu") {
+    entreeMenu = breakfastEntreeMenu;
+  }
+
+  const userInputEntree = prompt("Enter the name of your entree choice:");
+
+  // check if correct input
+  const entree = entreeMenu.find((item) => item.name === userInputEntree);
+
+  if (!entree) {
+    // Invalid input
+    console.log("Invalid choice. Please enter a valid entree from the menu.");
+    Bottega_Diner();
+  } else {
+    console.log("You selected " + entree.name + ".");
+    console.log("That will be $" + entree.price + ".");
+    waitressComment(entree.name);
+
+    // Get user sides selection
+    const [side1, side2] = showSidesMenu(selectedMenu);
+
+    // Calculate and display the total cost
+    totalCost(entree, side1, side2);
+  }
+}
+
+// Call the main function to start the Diner program
+Bottega_Diner();
 
 
-// Define functions to display menus, get user selection, and calculate the total cost
+/* // Define functions to display menus, get user selection, and calculate the total cost
 function selectMenu() {
   // Display the list of menus
   console.log("Please choose a menu:");
@@ -205,17 +291,6 @@ function showSidesMenu(menu) {
 	showEntreeMenu(menu);
 }
 
-function waitressComment(selection) {
-  // Implement the logic to generate a comment based on the selection
-}
-
-function waitressCommentSide1(selection) {
-  // Implement the logic to generate a comment for the first side selection
-}
-
-function waitressCommentSide2(selection) {
-  // Implement the logic to generate a comment for the second side selection
-}
 
 function totalCost(entree, side1, side2) {
   // Implement the logic to calculate the total cost
@@ -226,4 +301,4 @@ function Bottega_Diner() {
 }
 
 // Call the main function to start the Diner program
-Bottega_Diner();
+Bottega_Diner(); */
