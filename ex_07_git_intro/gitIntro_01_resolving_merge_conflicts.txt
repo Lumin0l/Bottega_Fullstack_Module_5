@@ -1,0 +1,7 @@
+In case you and a coworker changed the same code and you attempted a merge, it would trigger a conflict.
+
+To fix the conflict, you need to use the conflict resolver, depends on plugins and so on, but the fefault consists on:
+	Showing your commit code under the name "HEAD"
+	Showing the code from the other commit under the name of the main branch.
+
+	You need to delete all the content you don't want, to pick one of the options. Save it, add, commit, push and done.
