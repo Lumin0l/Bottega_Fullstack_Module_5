@@ -1,0 +1,8 @@
+To check what is different from the latest commit:
+	$ git diff <name of the file>
+
+To go back to the latest commit 
+	$ git checkout .
+
+Note: it will only work over changes on files that have been commited before, if you create new files and make changes in those, it won't work.
+
