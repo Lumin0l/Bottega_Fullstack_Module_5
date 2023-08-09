@@ -96,5 +96,17 @@ basic branching
 
 	We merge inwards, first checkout to the branch and then merge other branches into it.
 
+Git rebase
+
+	It forcefully updates the main branch, so it sets your feature branch (little branch) after whatever changes have been commited to the main branch,
+	regrdless of the time or order.
+	It is useful for project where you need access to the latest changes done to the main workflow, but it can mess up things, because it erases your commits, pastes the main branch, and then applies copies of your commits there.
+	If working with shared feature branches it can lead to many problems. 
 	
+	So *!* Don't rebase if working in shaared feature branches *!*
+
+		$ git rebase <main branch> <feature branch>
 		
+Git stash
+
+	
