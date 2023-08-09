@@ -11,7 +11,7 @@ Intro to git and the most common commands
 
 	-> Add elements to the repository
 		- Sends elements from the local directory to the git directory
-		$ git Add
+		$ git add
 
 	-> Commit changes
 		- Commits the changes added to the git repository. Kind of like making a snapshot of the project.
