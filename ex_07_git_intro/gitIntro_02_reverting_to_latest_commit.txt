@@ -20,3 +20,11 @@ There is a way to check on the whole project though.
 
 	-> git checkout <id of commit> -b <name of buffer branch>
 
+Apocalypse reset. You can reset a whole project into a previous commit.
+	
+	-> git reset --hard <id of commit>
+	And then force a push to overwrite the latest version with this commits code:
+	-> git push -f
+
+	This shouldn't be done unless absolutely necessary, for obvious reasons.
+
