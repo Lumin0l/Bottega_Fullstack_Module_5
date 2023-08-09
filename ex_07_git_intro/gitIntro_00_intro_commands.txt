@@ -133,3 +133,14 @@ Git fetch vs Git pull
 	Git pull updates and inserts all content in main into your local, overriding everything.
 	Git fetch makes a middle step, download the changes, overlaps them with your code, but won't apply them unless you validate them.
 
+Removing branches
+
+	Just by typing -d:
+
+		$ git branch -d <name of branch>
+
+	To delete them in the remote too:
+
+		$ git push <name of remote> --delete <name of branch>
+
+
