@@ -56,12 +56,21 @@ Git workflow
 		-> COMMIT EDITMSG: allows to edit the commit messages.
 		-> config: shows some technical info, notably the url of origin as well as the branch order and so on.
 
-	Using .gitignore
+Using .gitignore
 
-		You want to hide certain information, such as passwords, API keys and so on, because once it's in github anybody can see and steal it.
-		For that purpose we use a .gitignore file where we list by name the files you don't want pushed into the repo.
-		Be careful to spell things correctly.
-		Sometimes it doesn't work because of cache stored data. To solve this we can remove the cache data by doing this:
-			$ git rm -r --cached .
+	You want to hide certain information, such as passwords, API keys and so on, because once it's in github anybody can see and steal it.
+	For that purpose we use a .gitignore file where we list by name the files you don't want pushed into the repo.
+	Be careful to spell things correctly.
+	Sometimes it doesn't work because of cache stored data. To solve this we can remove the cache data by doing this:
+		$ git rm -r --cached .
 
+git pull intro
+
+	When working with other people you need to be able to sync the local versions and the one in the remote.
+	If someone makes a change in the remote, you won't see it in your local machine. It is stuck to the last time you worked it.
+	To get up to date, you need to do:
 	
+		$ git pull
+
+	And that will download and apply the changes for the last version.	
+	 

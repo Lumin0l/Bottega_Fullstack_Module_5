@@ -13,6 +13,7 @@
 	
 </body>
 <script>
+	/* TODO: Cambiar console.log por alert */
 	const lunchEntreeMenu = [
 			{ name: 'Rice', price: 6 },
 			{ name: 'Pasta', price: 12 },
@@ -109,7 +110,7 @@
 			const sidesMenu = menu === "Lunch Menu" ? lunchSidesMenu : dinnerSidesMenu;
 
 			for (let i = 0; i < sidesMenu.length; i++) {
-				console.log(sidesMenu[i].name + " - $" + sidesMenu[i].price);
+				console.log(sidesMenu[i].name + " - $" + sidesMenu[i].price); 
 			}
 
 			// Get user selection
@@ -143,9 +144,9 @@
 			return totalCost;
 		}
 
-		function selectMenu() {
+		function selectMenu() { 
 			// Display the list of menus
-			console.log("Please choose a menu:");
+			alert("Please choose a menu:");
 			console.log("1. Lunch Menu");
 			console.log("2. Dinner Menu");
 			console.log("3. Breakfast Menu");
