@@ -127,3 +127,9 @@ Git stash
 		$ git stash show : shows the changes done. Unlike "list", it tells what files and how many insertions are stashed.
 		$ git stash apply : applies the stashed changes to the branch
 		$ git stash clear : clears the stash and frees the memmory.
+
+Git fetch vs Git pull
+
+	Git pull updates and inserts all content in main into your local, overriding everything.
+	Git fetch makes a middle step, download the changes, overlaps them with your code, but won't apply them unless you validate them.
+
