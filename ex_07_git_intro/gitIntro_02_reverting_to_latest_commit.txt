@@ -6,3 +6,7 @@ To go back to the latest commit
 
 Note: it will only work over changes on files that have been commited before, if you create new files and make changes in those, it won't work.
 
+If we want to go to a previous commit, not jus the latest:
+	-> $ git log : to check the commit.
+	-> copy the id of the commit
+	-> $ git checkout <id of commit> -- <path to the file>
