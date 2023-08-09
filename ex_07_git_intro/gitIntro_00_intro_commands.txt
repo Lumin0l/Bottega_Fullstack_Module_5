@@ -74,3 +74,27 @@ git pull intro
 
 	And that will download and apply the changes for the last version.	
 	 
+git branches
+
+	Branches are the way we use to work on a feature for the project without affecting the whole porject. The main branch is the main part of the project, and if you want to add to it without disturbing it, 
+	you can create a new branch, work on it, and merge them once they are done.
+
+basic branching
+
+	So the way this branching is done is first creating the new branch:
+
+		$ git checkout -b <name of branch> : this will create a new branch and move us to to it
+
+	To go back to the other branches we type:
+
+		$ git checkout <name of the other branch>
+
+	The work being done in the other branch can be added, commited and pushed like normal, and it won't affect the main or the master branch.
+	to add the changes we've made to the main branch we need to merge them:
+
+		*from the main branch: $ git merge <little branch>
+
+	We merge inwards, first checkout to the branch and then merge other branches into it.
+
+	
+		
