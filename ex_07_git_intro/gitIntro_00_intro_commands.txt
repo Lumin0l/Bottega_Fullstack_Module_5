@@ -96,6 +96,15 @@ basic branching
 
 	We merge inwards, first checkout to the branch and then merge other branches into it.
 
+Push and Merge a Remote Branch in Git
+
+	In git and github, the branches are first considered "local" branches. In order to upload them for safe use and sharing,
+	we need to do it manually. For that, after making the changes and creating the local branch, we need to push it in the "upstream"
+
+		$ git push -u <name of the remote rep>
+
+	Then, we will be able to merge them in the remote and use github's tools to validate and track changes.
+
 Git rebase
 
 	It forcefully updates the main branch, so it sets your feature branch (little branch) after whatever changes have been commited to the main branch,
