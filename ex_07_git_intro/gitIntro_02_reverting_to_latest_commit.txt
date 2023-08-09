@@ -10,3 +10,13 @@ If we want to go to a previous commit, not jus the latest:
 	-> $ git log : to check the commit.
 	-> copy the id of the commit
 	-> $ git checkout <id of commit> -- <path to the file>
+
+It is a best practice to do it file by file, one by one, to avoid overriding too much.
+There is a way to check on the whole project though.
+	-> git checkout <id of the commit> : this will create a copy of the project in the moment of that commit.
+	
+	This is not recommended to do in the main branch, because it negates the verification part.
+	The best practice would be to do it in a separate branch, and then cherry-pick the files you want to reverse one by one:
+
+	-> git checkout <id of commit> -b <name of buffer branch>
+
