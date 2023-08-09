@@ -118,4 +118,12 @@ Git rebase
 		
 Git stash
 
-	
+	A way to save changes in a buffer. Not commited, but not deleted either. For small tasks too small to fully commit, but enough to require keeping.
+	It works a bit like "malloc" it allocates the changes to a buffer that can then be accesed once we come back to work with it.
+	As with malloc, it needs to be cleared afterwards or else we will have leaks.
+
+		$ git stash : gets the changes into the stash and saves them.
+		$ git stash list : lists the content in the stash
+		$ git stash show : shows the changes done. Unlike "list", it tells what files and how many insertions are stashed.
+		$ git stash apply : applies the stashed changes to the branch
+		$ git stash clear : clears the stash and frees the memmory.
